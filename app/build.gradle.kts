@@ -65,6 +65,8 @@ dependencies {
     // Google Play Services
     implementation(libs.gms.play.services.base)
     implementation(libs.gms.play.services.tasks)
+
+    implementation("androidx.compose.material:material-icons-extended:1.4.0")
 }
 
 apply(plugin = "com.google.gms.google-services")

@@ -1,7 +1,10 @@
 package nl.ou.buddyapp.ui.theme
 
-import android.app.Activity
 import android.os.Build
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -9,35 +12,62 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import nl.ou.buddyapp.R
 
+// Definieer een aangepast lettertype voor je app
+val robotoFamily  = FontFamily(
+    Font(R.font.roboto_regular),
+    Font(R.font.roboto_bold, FontWeight.Bold)
+)
+
+//voorlopig is heeft darkmode dezelfde kleuren
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Primary,  // Hoofdkleur van je app
+    secondary = Secondary,  // Secundaire kleur
+    tertiary = Teriary,  // Tertiaire kleur
+    background = White,  // Achtergrondkleur
+    surface = White,  // Surface-kleur (achtergrond van componenten zoals kaarten)
+    onPrimary = White,  // Kleur voor tekst of iconen op primaire achtergrond
+    onSecondary = White,  // Kleur voor tekst of iconen op secundaire achtergrond
+    onTertiary = White,  // Kleur voor tekst of iconen op tertiaire achtergrond
+    onBackground = Black,  // Kleur voor tekst op achtergrond
+    onSurface = Dark,  // Kleur voor tekst op surface
+    error = Error,  // Kleur voor foutmeldingen
+    onError = White,  // Kleur voor tekst op error-achtergrond
+    outline = Accent,  // Kleur voor outlines (randkleuren),
+    surfaceVariant = Primary,  //kleur lichte variant surface
+    onSurfaceVariant = White, //kleur lichte variant surface,
+    outlineVariant = SecondaryGradient
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = Primary,  // Hoofdkleur van je app
+    secondary = Secondary,  // Secundaire kleur
+    tertiary = Teriary,  // Tertiaire kleur
+    background = White,  // Achtergrondkleur
+    surface = White,  // Surface-kleur (achtergrond van componenten zoals kaarten)
+    onPrimary = White,  // Kleur voor tekst of iconen op primaire achtergrond
+    onSecondary = White,  // Kleur voor tekst of iconen op secundaire achtergrond
+    onTertiary = White,  // Kleur voor tekst of iconen op tertiaire achtergrond
+    onBackground = Black,  // Kleur voor tekst op achtergrond
+    onSurface = Dark,  // Kleur voor tekst op surface
+    error = Error,  // Kleur voor foutmeldingen
+    onError = White,  // Kleur voor tekst op error-achtergrond
+    outline = Accent,  // Kleur voor outlines (randkleuren)
+    surfaceVariant = Primary,  //kleur lichte variant surface
+    onSurfaceVariant = White, //kleur lichte variant surface
+    outlineVariant = SecondaryGradient
 )
 
 @Composable
 fun BuddyAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,              //uitgeschakeld
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
