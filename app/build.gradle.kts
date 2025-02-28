@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
 }
 
+
+
 android {
     namespace = "nl.ou.buddyapp"
     compileSdk = 35
@@ -38,6 +40,7 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
@@ -59,6 +62,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-
+    // Google Play Services
+    implementation(libs.gms.play.services.base)
+    implementation(libs.gms.play.services.tasks)
 }
+
+apply(plugin = "com.google.gms.google-services")
+
 

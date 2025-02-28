@@ -44,7 +44,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         "born" to 1815
     )
 
-// Add a new document with a generated ID
+    // Add a new document with a generated ID
     db.collection("users")
         .add(user)
         .addOnSuccessListener { documentReference ->

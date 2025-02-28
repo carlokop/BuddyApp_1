@@ -10,6 +10,8 @@ activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 googleGmsGoogleServices = "4.4.2"
 firebaseFirestore = "25.1.2"
+google_play_services_base = "18.0.1"
+google_play_services_tasks = "18.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +29,8 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
+gms_play_services_base = { group = "com.google.android.gms", name = "play-services-base", version.ref = "google_play_services_base" }
+gms_play_services_tasks = { group = "com.google.android.gms", name = "play-services-tasks", version.ref = "google_play_services_tasks" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
