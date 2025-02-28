@@ -1,0 +1,43 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Android Studio & Gradle files
+.gradle/
+.idea/
+build/
+local.properties
+.DS_Store
+
+# Files for IntelliJ-based IDEs
+.idea/*
+*.iml
+*.ipr
+*.iws
+
+# Gradle files
+.gradle/
+# Gradle wrapper files
+gradle-wrapper.jar
+gradle-wrapper.properties
+# Local gradle configuration
+local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Android Studio specific cache files
+.idea/caches/
+.idea/libraries/
+.idea/workspace.xml
+.idea/modules.xml
+.idea/.name
+
+# User-specific configuration files
+*.user
+*.swp
+
+# Windows thumbnail cache
+Thumbs.db
